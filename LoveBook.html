@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Story Book</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #fdf5e6;
+            color: #5d4037;
+        }
+        .book-container {
+            width: 80%;
+            max-width: 600px;
+            height: 80%;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 20px;
+            box-sizing: border-box;
+            text-align: justify;
+        }
+        .content {
+            flex: 1;
+            overflow: hidden;
+        }
+        .content p {
+            display: none;
+            margin: 0;
+        }
+        .content p.active {
+            display: block;
+        }
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .navigation button {
+            background-color: #8d6e63;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .navigation button:disabled {
+            background-color: #d7ccc8;
+            cursor: not-allowed;
+        }
+        .navigation button:hover:enabled {
+            background-color: #6d4c41;
+        }
+    </style>
+</head>
+<body>
+    <div class="book-container">
+        <div class="content">
+            <p class="active">Page 1: It was a crisp autumn morning when Emma first saw Liam at the park. She was captivated by his warm smile and the way he laughed while playing with a golden retriever...</p>
+            <p>Page 2: Days turned into weeks, and Emma found herself visiting the park more often, hoping to catch another glimpse of the charming stranger...</p>
+            <p>Page 3: One day, their paths finally crossed. Liam approached her, holding the retriever's leash, and said, "I think someone has been hoping for a hello..."</p>
+            <p>Page 4: Their conversation flowed effortlessly, as if they had known each other for years. Liam introduced his dog, Max, and Emma shared stories about her love for painting...</p>
+            <p>Page 5: Over the weeks, their connection grew deeper. They spent hours talking about their dreams and ambitions under the autumn trees...</p>
+            <p>Page 6: Emma showed Liam her artwork, and he was amazed by her talent. He encouraged her to showcase her paintings at a local gallery...</p>
+            <p>Page 7: One snowy evening, Liam surprised Emma with tickets to her favorite art exhibition. Her heart swelled with gratitude and affection...</p>
+            <p>Page 8: Their bond was tested when Liam had to move to a different city for work. They promised to keep in touch and make long-distance work...</p>
+            <p>Page 9: Despite the distance, they called each other every night, sharing their day and dreams of being together again...</p>
+            <p>Page 10: Months later, Liam returned with a surprise. He had arranged for Emma's paintings to be displayed at a prominent gallery in his city...</p>
+            <p>Page 11: Emma was overjoyed and decided to take a leap of faith by moving to Liam's city to pursue her art career...</p>
+            <p>Page 12: They found a quaint little apartment where they could both nurture their dreams and support each other...</p>
+            <p>Page 13: On their first anniversary, Liam took Emma to the park where they first met. Under the same autumn trees, he expressed his love for her...</p>
+            <p>Page 14: Emma, overwhelmed with emotion, realized how much Liam meant to her. Their love story felt like a dream...</p>
+            <p>Page 15: Together, they adopted Max's sibling, a playful puppy named Daisy, completing their little family...</p>
+            <p>Page 16: Liam proposed an idea for a joint project - a book combining Emma's art with his poetry. Emma eagerly agreed...</p>
+            <p>Page 17: As they worked on the book, their connection deepened. They realized how well they complemented each other...</p>
+            <p>Page 18: The book was a success, receiving rave reviews and bringing them closer to their shared dreams...</p>
+            <p>Page 19: Their love story inspired many, and they began receiving invitations to share their journey at events...</p>
+            <p>Page 20: One evening, Liam planned a surprise dinner under the stars, reminiscing about their journey together...</p>
+            <p>Page 21: He confessed that meeting Emma had been the best thing that ever happened to him, and she felt the same...</p>
+            <p>Page 22: They decided to travel together, exploring new places and drawing inspiration for their next creative projects...</p>
+            <p>Page 23: During their travels, they encountered challenges that only strengthened their bond...</p>
+            <p>Page 24: Liam's dream of publishing his poetry came true, with Emma designing the cover and illustrations...</p>
+            <p>Page 25: Emma's art gained recognition, and she held her first solo exhibition, with Liam by her side, beaming with pride...</p>
+            <p>Page 26: As they celebrated their achievements, they realized that their greatest accomplishment was the love they shared...</p>
+            <p>Page 27: They began planning their future together, discussing their dreams of a cozy home and a family...</p>
+            <p>Page 28: On a serene summer evening, Liam proposed to Emma with a heartfelt poem and a beautiful ring...</p>
+            <p>Page 29: Their wedding was a celebration of love, surrounded by friends, family, and the art that brought them together...</p>
+            <p>Page 30: As they stood under the starlit sky, Liam knelt down and said, "Emma, meeting you was fate, loving you is a choice I make every day. Will you marry me?" Tears in her eyes, Emma nodded with a radiant smile.</p>
+        </div>
+        <div class="navigation">
+            <button id="prev" disabled>&larr; Prev</button>
+            <button id="next">Next &rarr;</button>
+        </div>
+    </div>
+
+    <script>
+        const pages = document.querySelectorAll('.content p');
+        const prevButton = document.getElementById('prev');
+        const nextButton = document.getElementById('next');
+        let currentPage = 0;
+
+        function updatePage() {
+            pages.forEach((page, index) => {
+                page.classList.toggle('active', index === currentPage);
+            });
+            prevButton.disabled = currentPage === 0;
+            nextButton.disabled = currentPage === pages.length - 1;
+        }
+
+        prevButton.addEventListener('click', () => {
+            if (currentPage > 0) {
+                currentPage--;
+                updatePage();
+            }
+        });
+
+        nextButton.addEventListener('click', () => {
+            if (currentPage < pages.length - 1) {
+                currentPage++;
+                updatePage();
+            }
+        });
+
+        updatePage();
+    </script>
+</body>
+</html>

@@ -1,13 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My First Website</title>
-    </head>
-    <body>
-<h1>Eagan</h1>
-<img src="Profile.jpg" alt="Profile Image">
-<p>Updated</p>
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Haven</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        header {
+            background-color: #6A5ACD;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.8rem;
+            font-weight: bold;
+        }
+
+        nav {
+            text-align: center;
+            background-color: #483D8B;
+            padding: 10px 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #FFD700;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://source.unsplash.com/1600x900/?books') center/cover;
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+        }
+
+        .hero h2 {
+            font-size: 3.5rem;
+            text-align: center;
+        }
+
+        .content {
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .content h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #4B0082;
+            margin-bottom: 20px;
+        }
+
+        .book-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .book {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .book:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .book img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .book-info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .book-info h3 {
+            margin: 10px 0;
+            font-size: 1.8rem;
+            color: #4B0082;
+        }
+
+        .book-info button {
+            background-color: #6A5ACD;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .book-info button:hover {
+            background-color: #5A4BBE;
+        }
+
+        footer {
+            background-color: #483D8B;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+            font-size: 1rem;
+        }
+
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Book Haven</h1>
+    </header>
+
+    <!-- <nav>
+        <a href="#">Home</a>
+        <a href="#">Shop</a>
+        <a href="#">About Us</a>
+        <a href="#">Contact</a>
+    </nav> -->
+
+    <section class="hero">
+        <h2>Your Gateway to Knowledge</h2>
+    </section>
+
+    <section class="content">
+        <h2>Our Collection</h2>
+        <div class="book-grid">
+
+
+
+            <div class="book">
+                <img src="download (2).jpg" alt="Book Cover Page" class="clickable-image">
+                <div class="book-info">
+                    <h3>The Great Adventure</h3>
+                    <a href="LoveBook.html">
+                        <button>Read Now</button>
+                    </a>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Book Haven. All Rights Reserved.</p>
+    </footer>
+</body>
 </html>
